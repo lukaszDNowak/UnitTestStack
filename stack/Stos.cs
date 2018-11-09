@@ -31,5 +31,6 @@ namespace stack
                 throw new InvalidOperationException();
             return _list[_list.Count - 1];
         }
+
     }
 }

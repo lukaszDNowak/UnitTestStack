@@ -49,9 +49,42 @@ namespace StackTest
         [TestMethod]
         public void StackIsNotEmpty()
         {
-            Stack<string> st = new Stack<string>();
+            Stack<object> st = new Stack<object>();
             st.Push("Nie jest pusty");
             Assert.AreEqual(st.Count,1);
+        }
+
+        [TestMethod]
+        public void TestStackInvalidOperationException()
+        {
+            Stack<Object> st = new Stack<object>();
+            try
+            {
+                st.Peek();
+                st.Pop();
+            }
+            catch (InvalidOperationException ex)
+            {
+                StringAssert.Contains(ex.Message, "");
+                return;
+            }
+            Assert.Fail("Nie wystąpił wyjątek : InvalidOperationExeption");
+        }
+
+        [TestMethod]
+        public void TestStackArgumentNullExeption()
+        {
+            Stack<object> st = new Stack<object>();
+            try
+            {
+                st.Push(null);
+            }
+            catch (ArgumentNullException ex)
+            {
+                StringAssert.Contains(ex.Message, "");
+                return;
+            }
+            Assert.Fail("Nie wystąpił wyjątek : ArgumentNullExeption");
         }
     }
 }
