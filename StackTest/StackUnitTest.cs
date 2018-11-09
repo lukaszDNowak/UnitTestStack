@@ -54,10 +54,12 @@ namespace StackTest
             Assert.AreEqual(st.Count,1);
         }
 
+  
         [TestMethod]
         public void TestStackInvalidOperationException()
         {
             Stack<Object> st = new Stack<object>();
+            //st.Push(2);
             try
             {
                 st.Peek();
@@ -68,6 +70,7 @@ namespace StackTest
                 StringAssert.Contains(ex.Message, "");
                 return;
             }
+
             Assert.Fail("Nie wystąpił wyjątek : InvalidOperationExeption");
         }
 
